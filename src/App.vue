@@ -102,30 +102,12 @@ function closeMenu() {
   menuOpen.value = false
 }
 
-// Action Handler for Newsletter Background Submission (AJAX Fetch Fixed URL)
-const handleSubscribe = async () => {
-  if (emailInput.value) {
-    try {
-      await fetch('https://api.web3forms.com', {
-        method: 'POST',
-        headers: { 
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify({
-          access_key: '32733d9b-a14b-4d09-826d-ecc4fbbef1e8', // 👈 Replace with your real Web3Forms access key token string
-          email: emailInput.value,
-          subject: 'New Newsletter Subscription - CODE Society'
-        })
-      })
-      
-      // Update local states to trigger custom template success alerts
-      subscribed.value = true
-      emailInput.value = ''
-    } catch (error) {
-      console.error('Submission failed:', error)
-    }
-  }
+// Action Handler for Hidden Iframe Form Submission
+const handleFormSubmit = () => {
+  setTimeout(() => {
+    subscribed.value = true
+    emailInput.value = ''
+  }, 500)
 }
 
 // Action Handler for Smooth Scroll-to-Top Navigation Click
@@ -352,28 +334,39 @@ const scrollToTop = () => {
       <a href="#contact">Contact</a>
     </div>
 
-    <!-- Interactive Newsletter Area Managed Directly via Button Clicks -->
+    <!-- Interactive Newsletter Area (Ad-Blocker Proof Submission) -->
     <div class="mt-6 max-w-sm">
       <p class="text-xs text-slate-400 mb-2 uppercase tracking-wider font-semibold">Stay Updated</p>
       
-      <!-- Container element replacing old form tag to stop submission blocks -->
-      <div v-if="!subscribed" class="flex gap-2">
+      <!-- Invisible target frame so the page never redirects -->
+      <iframe name="hidden_confirm" id="hidden_confirm" style="display:none;"></iframe>
+
+      <form 
+        v-if="!subscribed"
+        action="https://web3forms.com" 
+        method="POST" 
+        target="hidden_confirm"
+        @submit="handleFormSubmit"
+        class="flex gap-2"
+      >
+        <input type="hidden" name="access_key" value="32733d9b-a14b-4d09-826d-ecc4fbbef1e8">
+        <input type="hidden" name="subject" value="New Newsletter Subscription - CODE Society">
+        
         <input 
           type="email" 
+          name="email"
           v-model="emailInput" 
           placeholder="Your email address" 
           required
           class="bg-slate-900/60 border border-slate-700 text-white rounded-lg px-3 py-1.5 text-sm w-full focus:outline-none focus:border-sky-500 transition-colors"
         />
-        <!-- Triggering active handleSubscribe process immediately on click -->
         <button 
-          @click="handleSubscribe" 
-          type="button"
+          type="submit"
           class="bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold px-4 py-1.5 rounded-lg text-sm transition-all active:scale-95 cursor-pointer"
         >
           Join
         </button>
-      </div>
+      </form>
       
       <!-- Custom Success Alert Message Box (Toggled by subscribed state) -->
       <div v-else class="text-emerald-400 text-xs bg-emerald-950/40 border border-emerald-900 px-3 py-2 rounded-lg animate-fade-in">
@@ -384,7 +377,7 @@ const scrollToTop = () => {
 
   <div class="container-wide footer-bottom flex flex-col sm:flex-row justify-between items-center gap-4">
     <div class="text-slate-400">
-      <span>© 2026 CODE Society of Kenya. All rights reserved.</span>
+      <span>© {{ new Date().getFullYear() }} CODE Society of Kenya. All rights reserved.</span>
       <span class="mx-2 hidden sm:inline">·</span>
       <span class="block sm:inline mt-1 sm:mt-0 text-slate-500">
         Engineered by 
@@ -408,6 +401,7 @@ const scrollToTop = () => {
     </button>
   </div>
 </footer>
+
 
 
   </div>
