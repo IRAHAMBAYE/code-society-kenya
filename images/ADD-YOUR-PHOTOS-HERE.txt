@@ -1,0 +1,11 @@
+Add your original project photos to this folder using these filenames (JPG, PNG or WebP):
+- community-hero.jpg       (wide photo for the homepage)
+- school-building.jpg      (school building)
+- classroom.jpg            (learners/classroom)
+- tree-planting.jpg        (tree planting activity)
+- learners-celebration.jpg (learners celebrating)
+- women-training.jpg       (women's tailoring/skills training)
+- regional-forum.jpg       (regional forum)
+
+The website already includes graceful colour placeholders if a photo is not present.
+Use original photos you have permission to publish, especially where children are visible.
