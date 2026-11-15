@@ -43,7 +43,7 @@ const stories = [
     category: 'Education',
     title: 'CODE Comprehensive School',
     description: 'The pride of Refugee Education in Kenya. Celebrating the completion of our first school block structure with the learners and donors.',
-    image: 'images/school-exterior.jpg',
+    image: '/images/school-exterior.jpg',
     alt: 'CODE Comprehensive School building exterior',
     tag: 'Education',
   },
@@ -51,7 +51,7 @@ const stories = [
     category: 'Education',
     title: 'Clean and conducive classrooms',
     description: 'Supporting newcomers and over-aged refugee students with an Accelerated Education Program (AEP) to continue their learning journey.',
-    image: 'images/classroom-inside.jpg',
+    image: '/images/classroom-inside.jpg',
     alt: 'Learners sitting inside the completed school classroom',
     tag: 'Education',
   },
@@ -59,7 +59,7 @@ const stories = [
     category: 'Community',
     title: 'Tree Planting session on site',
     description: 'Community members and teams coming together on-site to plant trees, taking practical steps towards a green and healthy environment.',
-    image: 'images/tree-planting.jpg',
+    image: '/images/tree-planting.jpg',
     alt: 'Community members planting tree seedlings together',
     tag: 'Community',
   },
@@ -67,7 +67,7 @@ const stories = [
     category: 'Livelihoods',
     title: 'Women Empowerment program',
     description: 'Empowering refugee women through tailoring skill development, cloth production, and independent business options for sustainable livelihoods.',
-    image: 'images/women-tailoring.jpg',
+    image: '/images/women-tailoring.jpg',
     alt: 'Women taking part in sewing and tailoring skills training',
     tag: 'Livelihoods',
   },
@@ -75,7 +75,7 @@ const stories = [
     category: 'Advocacy',
     title: 'Participating in Regional Forums',
     description: 'Taking part in important regional community conversations and partnerships in Kampala, Uganda to advocate for inclusive growth.',
-    image: 'images/regional-forum.jpg',
+    image: '/images/regional-forum.jpg',
     alt: 'Participants attending the regional forum assembly',
     tag: 'Advocacy',
   },
@@ -83,7 +83,7 @@ const stories = [
     category: 'Community',
     title: 'Finishing the school interiors',
     description: 'Putting a smile on refugee student faces by wrapping up the interior floor treatments and hands printing marks on the classroom walls.',
-    image: 'images/community-celebration.jpg',
+    image: '/images/community-celebration.jpg',
     alt: 'Finished classroom interior showing the clean painted walls and window grids',
     tag: 'Community',
   }
@@ -144,7 +144,7 @@ const scrollToTop = () => {
         <a href="#home" class="brand flex items-center gap-3" @click="closeMenu">
           <!-- Real Logo Asset Integration -->
           <img 
-            src="images/logo.jpg" 
+            src="/images/logo.jpg" 
             alt="CODE Society of Kenya Logo" 
             class="h-11 w-auto object-contain rounded-md shadow-sm" 
           />
@@ -187,7 +187,7 @@ const scrollToTop = () => {
 
           <div class="hero-visual">
             <div class="hero-photo-wrap">
-              <img src="images/community-hero.jpg" alt="CODE Society community members working together" @error="$event.target.style.display='none'" />
+              <img src="/images/community-hero.jpg" alt="CODE Society community members working together" @error="$event.target.style.display='none'" />
               <div class="hero-photo-fallback">
                 <span class="fallback-symbol">C<span>O</span>D</span>
                 <span>COMMUNITY IN ACTION</span>
@@ -336,7 +336,7 @@ const scrollToTop = () => {
     <!-- Updated with real logo asset for footer matching the screen capture -->
     <a href="#home" class="footer-brand flex items-center gap-3 mb-4">
       <img 
-        src="images/logo.jpg" 
+        src="/images/logo.jpg" 
         alt="CODE Society of Kenya Logo" 
         class="h-8 w-auto object-contain rounded-sm" 
       />
