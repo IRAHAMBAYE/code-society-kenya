@@ -104,14 +104,14 @@ function closeMenu() {
 const handleSubscribe = async () => {
   if (emailInput.value) {
     try {
-      await fetch('https://web3forms.com', {
+      await fetch('https://api.web3forms.com', {
         method: 'POST',
         headers: { 
           'Content-Type': 'application/json',
           'Accept': 'application/json'
         },
         body: JSON.stringify({
-          access_key: 'YOUR_ACCESS_KEY_HERE', // 👈 Replace with your real Web3Forms access key token string
+          access_key: '32733d9b-a14b-4d09-826d-ecc4fbbef1e8', // 👈 Replace with your real Web3Forms access key token string
           email: emailInput.value,
           subject: 'New Newsletter Subscription - CODE Society'
         })
